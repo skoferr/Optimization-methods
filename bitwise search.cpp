@@ -80,7 +80,7 @@ double bitwiseSearch(double a, double b, double e) {
     cout << "\n\nИтераций: " << iter << endl;
 }
 int main() {
-    setlocale(LC_ALL, "RU"); // Устанавливаем русскую локализацию
+    setlocale(LC_ALL, "RU");
     double a, b; // Интервал поиска минимума (в случае нашей задачи: [-8; 0.5])
     double e; // Точность (в нашей задаче: 0.06)
     // Ввод границ и точности с клавиатуры
