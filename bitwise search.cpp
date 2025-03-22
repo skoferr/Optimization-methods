@@ -5,28 +5,28 @@ using namespace std;
 
 int max_iter = 150;
 
-// Исходная функция
+// РСЃС…РѕРґРЅР°СЏ С„СѓРЅРєС†РёСЏ
 double function(double x) {
     return x * exp(-(x * x) / 2);
 }
 
-// Метод поразрядного поиска минимума
+// РњРµС‚РѕРґ РїРѕСЂР°Р·СЂСЏРґРЅРѕРіРѕ РїРѕРёСЃРєР° РјРёРЅРёРјСѓРјР°
 double bitwiseSearch(double a, double b, double e) {
-    double step = (b - a) / 4; //Дельта
-    double x0 = a;//Начальная / левая граница
+    double step = (b - a) / 4; //Р”РµР»СЊС‚Р°
+    double x0 = a;//РќР°С‡Р°Р»СЊРЅР°СЏ / Р»РµРІР°СЏ РіСЂР°РЅРёС†Р°
     double x_new, f0, f_new;
     int iter = 0;
     f0 = function(x0);
     while (step > e) {
 
-        cout << endl << "Вправо" << endl;
+        cout << endl << "Р’РїСЂР°РІРѕ" << endl;
 
-        while (true) { //Цикл двигается вправо
+        while (true) { //Р¦РёРєР» РґРІРёРіР°РµС‚СЃСЏ РІРїСЂР°РІРѕ
             x_new = x0 + step;
 
             f_new = function(x_new);
 
-            cout << "Итерация |" << iter << "| " << "| step " << step << " | x = " << x_new << " | f(x) " << f_new << endl;
+            cout << "РС‚РµСЂР°С†РёСЏ |" << iter << "| " << "| step " << step << " | x = " << x_new << " | f(x) " << f_new << endl;
             iter++;
             if (iter == max_iter) return x0;
             if (f0 > f_new) {
@@ -43,19 +43,19 @@ double bitwiseSearch(double a, double b, double e) {
                 break;
             }
         }
-        step /= 4; //Уменьшение шага
+        step /= 4; //РЈРјРµРЅСЊС€РµРЅРёРµ С€Р°РіР°
 
         x0 = x_new;
         f0 = function(x0);
 
-        cout << endl << "Влево" << endl;
+        cout << endl << "Р’Р»РµРІРѕ" << endl;
 
-        while (true) //Цикл движется влево
+        while (true) //Р¦РёРєР» РґРІРёР¶РµС‚СЃСЏ РІР»РµРІРѕ
         {
             x_new = x0 - step;
             f_new = function(x_new);
 
-            cout << "Итерация | " << iter << " | " << " | step " << step << " | x = " << x_new << " | f(x) " << f_new << endl;
+            cout << "РС‚РµСЂР°С†РёСЏ | " << iter << " | " << " | step " << step << " | x = " << x_new << " | f(x) " << f_new << endl;
             iter++;
             if (iter == max_iter) return x0;
 
@@ -77,18 +77,18 @@ double bitwiseSearch(double a, double b, double e) {
         }
     }
     return x0;
-    cout << "\n\nИтераций: " << iter << endl;
+    cout << "\n\nРС‚РµСЂР°С†РёР№: " << iter << endl;
 }
 int main() {
-    setlocale(LC_ALL, "RU"); // Устанавливаем русскую локализацию
-    double a, b; // Интервал поиска минимума (в случае нашей задачи: [-8; 0.5])
-    double e; // Точность (в нашей задаче: 0.06)
-    // Ввод границ и точности с клавиатуры
-    cout << "Введите левую границу: ";
+    setlocale(LC_ALL, "RU"); // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЂСѓСЃСЃРєСѓСЋ Р»РѕРєР°Р»РёР·Р°С†РёСЋ
+    double a, b; // РРЅС‚РµСЂРІР°Р» РїРѕРёСЃРєР° РјРёРЅРёРјСѓРјР° (РІ СЃР»СѓС‡Р°Рµ РЅР°С€РµР№ Р·Р°РґР°С‡Рё: [-8; 0.5])
+    double e; // РўРѕС‡РЅРѕСЃС‚СЊ (РІ РЅР°С€РµР№ Р·Р°РґР°С‡Рµ: 0.06)
+    // Р’РІРѕРґ РіСЂР°РЅРёС† Рё С‚РѕС‡РЅРѕСЃС‚Рё СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+    cout << "Р’РІРµРґРёС‚Рµ Р»РµРІСѓСЋ РіСЂР°РЅРёС†Сѓ: ";
     cin >> a;
-    cout << "Введите правую границу: ";
+    cout << "Р’РІРµРґРёС‚Рµ РїСЂР°РІСѓСЋ РіСЂР°РЅРёС†Сѓ: ";
     cin >> b;
-    cout << "Введите точность: ";
+    cout << "Р’РІРµРґРёС‚Рµ С‚РѕС‡РЅРѕСЃС‚СЊ: ";
     cin >> e;
     cout << endl;
     double min_x;
@@ -98,3 +98,4 @@ int main() {
     system("cls");
     main();
 }
+
